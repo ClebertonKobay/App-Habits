@@ -1,20 +1,42 @@
 import { useState } from "react";
-import { ScrollView, View, Text, TextInput, TouchableOpacity } from "react-native";
+import { ScrollView, View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import { BackButton } from "../components/BackButton";
 import { CheckBox } from "../components/CheckBox";
 import { Feather } from '@expo/vector-icons'
 import colors from 'tailwindcss/colors'
+import { api } from "../lib/axios";
+
 
 const avaibleWeekDays = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado']
 
 export function New (){
     const [ weekDays, setWeekDays ] = useState<number[]>([])
+    const [title, setTitle] = useState('');
 
     function handleToggleWeekDays(weekDayIndex : number){
         if(weekDays.includes(weekDayIndex)){
             setWeekDays(prevState => prevState.filter(weekDay => weekDay != weekDayIndex));
         }else {
             setWeekDays(prevState => [...prevState, weekDayIndex]);
+        }
+    }
+
+    async function handleCreateNewhabit() {
+        try{
+            if(!title.trim() || weekDays.length === 0){
+                Alert.alert("Criar Hábito","Informa o nome do hábito e escolha a periodicidade.")
+            }
+            await api.post('/habits',{
+                title:title,
+                weekDay:weekDays,
+            });
+
+            setTitle('');
+            setWeekDays([]);
+            Alert.alert("Criar Hábito","Hábito criado com sucesso.")
+        }catch(error){
+            console.error(error);
+            Alert.alert("Ops","Não foi possivel criar o novo hábito.")
         }
     }
 
@@ -42,6 +64,8 @@ export function New (){
                     className="h-12 pl-4 rounded-lg mt-3 bg-zinc-900  text-white border-2 border-zinc-800 focus:border-green-600"
                     placeholder="ex.: Exercícios, Beber 2L de água, etc..."
                     placeholderTextColor={colors.zinc[400]}
+                    onChangeText={setTitle}
+                    value={title}
                 />
                 <Text
                     className="text-white font-semibold mt-4 mb-3 text-base"
@@ -63,6 +87,7 @@ export function New (){
                 <TouchableOpacity
                     className="w-full h-14 flex-row items-center justify-center bg-green-600 rounded-md mt-6"
                     activeOpacity={0.5}
+                    onPress={handleCreateNewhabit}
                 >
                     <Feather
                         name="check"
