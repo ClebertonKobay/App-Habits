@@ -17,5 +17,7 @@
 <ul>
 
 <li>Autentificação</li><!-- Firebase/ Auth0-->
+<li>Notificação Push</li>
+<li>Gráfico de resumo</li>
 
 </ul>
