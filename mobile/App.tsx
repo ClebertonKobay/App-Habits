@@ -8,7 +8,7 @@ import {  useFonts,
           Inter_800ExtraBold
         } from '@expo-google-fonts/inter'
 
-import { Loading } from './src/components/loading';
+import { Loading } from './src/components/Loading';
 import { Routes } from './src/routes/Index';
 
 

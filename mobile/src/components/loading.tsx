@@ -2,7 +2,7 @@ import { ActivityIndicator, StyleSheet,View,Text } from "react-native";
 
 export function Loading(){
     return(<View style={styles.loadingView}>
-        <ActivityIndicator size={20} color="#4C1D95"/>
+        <ActivityIndicator size={60} color="#4C1D95"/>
         <Text style={styles.text}>Loading</Text>
     </View>);
 }

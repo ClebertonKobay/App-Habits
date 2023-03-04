@@ -16,7 +16,7 @@ interface HabitsInfo {
       created_at: string
     }[]
     completedHabit: string[],
-  }
+}
 
 export function HabitDayList({ date,onCompletedChange }: HabitListProps) {
 
