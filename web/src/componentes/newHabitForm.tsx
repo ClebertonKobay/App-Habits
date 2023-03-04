@@ -53,10 +53,10 @@ export function NewHabitForm(){
                 placeholder="ex.: Exercícios, Beber água, etc..." 
                 autoFocus
                 value={title}
-                className="p-4 rounded-lg mt-3 bg-zinc-800 text-white placeholder:text-zinc-400"
+                className="p-4 rounded-lg mt-3 bg-zinc-800 text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-violet-800 focus:ring-offset-2 focus:ring-offset-zinc-900 disabled:cursor-not-allowed"
                 >
             </input>
-            <label className="font-semibold leading-tight mt-4">
+            <label className="font-semibold leading-tight mt-4 ">
                 Qual a recorrência?
             </label>
 
@@ -68,7 +68,7 @@ export function NewHabitForm(){
                         return(
                         <Checkbox.Root
                             key={weekDay}
-                            className="flex items-center gap-3 group p-0"
+                            className="flex items-center gap-3 group p-0 focus:outline-none focus:ring-2 focus:ring-violet-800 focus:ring-offset-2 focus:ring-offset-zinc-900 disabled:cursor-not-allowed"
                             checked={weekDays.includes(index)}
                             onCheckedChange={() => {
                                 handleToggleWeekDay(index)
@@ -97,7 +97,7 @@ export function NewHabitForm(){
 
             <button 
                 type="submit"
-                className="mt-6 rounded-lg p-4 flex items-center justify-center gap-3 font-semibold bg-green-600 hover:bg-green-500 transition-colors"
+                className="mt-6 rounded-lg p-4 flex items-center justify-center gap-3 font-semibold bg-green-600 hover:bg-green-500 transition-colors focus:outline-none focus:ring-2 focus:ring-green-800 focus:ring-offset-2 focus:ring-offset-zinc-900 disabled:cursor-not-allowed"
                 >
                 <Check size={20} weight ="bold"/>
                 Confirmar
