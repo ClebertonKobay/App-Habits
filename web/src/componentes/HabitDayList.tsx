@@ -70,10 +70,10 @@ export function HabitDayList({ date,onCompletedChange }: HabitListProps) {
                         }}
                         checked={habitsInfo.completedHabit.includes(habit.id)}
                         disabled={isDayinPast}
-                        className="flex items-center gap-3 group"
+                        className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-violet-800 focus:ring-offset-2 focus:ring-offset-zinc-900 disabled:cursor-not-allowed"
                     >
                         <div
-                            className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500"
+                            className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500 transition-colors"
                         >
                             <Checkbox.Indicator>
                                 <Check
