@@ -12,3 +12,10 @@
 <li>Expo</li>
 
 </ul>
+
+<h3>Futuras Features</h3>
+<ul>
+
+<li>Autentificação</li><!-- Firebase/ Auth0-->
+
+</ul>
